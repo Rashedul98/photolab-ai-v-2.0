@@ -14,6 +14,85 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
+    <style>
+        .c-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.72);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .c-modal.is-open {
+            display: flex;
+        }
+
+        .c-modal__card {
+            position: relative;
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px 32px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            animation: modalPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.85) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .c-modal__icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .c-modal__title {
+            color: #ffffff !important;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .c-modal__body {
+            color: rgba(255, 255, 255, 0.65) !important;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0 0 28px;
+        }
+
+        .c-modal__btn {
+            background: #ffffff;
+            color: #0f172a !important;
+            border: none;
+            border-radius: 50px;
+            padding: 11px 36px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .c-modal__btn:hover {
+            opacity: 0.85;
+        }
+    </style>
 </head>
 
 <body class="inter-font">
@@ -848,40 +927,178 @@
                             magic of collaboration illuminate our skies.
                         </p>
 
-                        <!-- FORM -->
-                        <form class="mt-8 w-full">
+                        <!-- FORM — Web3Forms + Validation -->
+                        <form id="contactForm" class="mt-8 w-full" novalidate>
+                            <input type="hidden" name="access_key" value="295c4f21-234a-45d3-9a31-10725b54a202" />
+                            <input type="hidden" name="subject" value="New Contact Form Submission - PhotoLab AI" />
+                            <input type="checkbox" name="botcheck" style="display:none" />
 
-                            <!-- Name Row -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                                <input type="text" placeholder="Last Name"
-                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
-
-                                <input type="text" placeholder="First Name"
-                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
-
+                                <div>
+                                    <input type="text" name="last_name" placeholder="Last Name"
+                                        class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+                                </div>
+                                <div>
+                                    <input type="text" name="first_name" placeholder="First Name"
+                                        class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+                                </div>
                             </div>
-
-                            <!-- Email (FULL WIDTH) -->
-                            <input type="email" placeholder="Email"
-                                class="contact-input w-full mt-4 p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
-
-                            <!-- Phone (FULL WIDTH) -->
-                            <input type="text" placeholder="Phone Number"
-                                class="contact-input w-full mt-4 p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
-
-                            <!-- Message -->
-                            <textarea rows="5" placeholder="Message"
-                                class="contact-input w-full mt-4 p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white"></textarea>
-
-                            <!-- Button -->
-                            <button class="contact-submit mt-6 px-8 py-3 border border-white rounded-full text-white">
-
+                            <div class="mt-4">
+                                <input type="email" name="email" placeholder="Email"
+                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+                            </div>
+                            <div class="mt-4">
+                                <input type="text" name="phone" placeholder="Phone Number"
+                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+                            </div>
+                            <div class="mt-4">
+                                <textarea rows="5" name="message" placeholder="Message"
+                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white"></textarea>
+                            </div>
+                            <button type="submit" id="submitBtn"
+                                class="contact-submit mt-6 px-8 py-3 border border-white rounded-full text-white">
                                 LEAVE MESSAGE
-
                             </button>
-
                         </form>
+
+                        <!-- ── Success Modal ── -->
+                        <div id="successModal" class="c-modal">
+                            <div class="c-modal__card">
+                                <div class="c-modal__icon"
+                                    style="background:rgba(34,197,94,0.18); border:2px solid #4ade80;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ade80"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12" />
+                                    </svg>
+                                </div>
+                                <p class="c-modal__title">Message Sent!</p>
+                                <p class="c-modal__body">Thank you for reaching out.<br>We'll get back to you as soon as
+                                    possible.</p>
+                                <button id="closeSuccessModal" class="c-modal__btn">Done</button>
+                            </div>
+                        </div>
+
+                        <!-- ── Error Modal ── -->
+                        <div id="errorModal" class="c-modal">
+                            <div class="c-modal__card">
+                                <div class="c-modal__icon"
+                                    style="background:rgba(239,68,68,0.18); border:2px solid #f87171;">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f87171"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="12" y1="8" x2="12" y2="12" />
+                                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                                    </svg>
+                                </div>
+                                <p class="c-modal__title">Something Went Wrong!</p>
+                                <p class="c-modal__body">We couldn't send your message.<br>Please try again or contact
+                                    us directly.</p>
+                                <button id="closeErrorModal" class="c-modal__btn">Try Again</button>
+                            </div>
+                        </div>
+
+                        <script>
+                            (function () {
+                                var form = document.getElementById('contactForm');
+                                var submitBtn = document.getElementById('submitBtn');
+                                var successModal = document.getElementById('successModal');
+                                var errorModal = document.getElementById('errorModal');
+
+                                function openModal(modal) {
+                                    /* re-trigger animation on re-open */
+                                    var card = modal.querySelector('.c-modal__card');
+                                    card.style.animation = 'none';
+                                    modal.classList.add('is-open');
+                                    requestAnimationFrame(function () {
+                                        card.style.animation = '';
+                                    });
+                                }
+
+                                function closeModal(modal) {
+                                    modal.classList.remove('is-open');
+                                }
+
+                                document.getElementById('closeSuccessModal').addEventListener('click', function () { closeModal(successModal); });
+                                document.getElementById('closeErrorModal').addEventListener('click', function () { closeModal(errorModal); });
+
+                                successModal.addEventListener('click', function (e) { if (e.target === successModal) closeModal(successModal); });
+                                errorModal.addEventListener('click', function (e) { if (e.target === errorModal) closeModal(errorModal); });
+
+                                document.addEventListener('keydown', function (e) {
+                                    if (e.key !== 'Escape') return;
+                                    closeModal(successModal);
+                                    closeModal(errorModal);
+                                });
+
+                                /* ── Field errors ── */
+                                function showFieldError(input, msg) {
+                                    input.classList.add('border-red-400');
+                                    input.classList.remove('border-white/20');
+                                    var wrap = input.closest('div');
+                                    var err = wrap.querySelector('.field-error');
+                                    if (!err) {
+                                        err = document.createElement('p');
+                                        err.className = 'field-error text-red-400 text-xs mt-1';
+                                        wrap.appendChild(err);
+                                    }
+                                    err.textContent = msg;
+                                }
+
+                                function clearFieldError(input) {
+                                    input.classList.remove('border-red-400');
+                                    input.classList.add('border-white/20');
+                                    var wrap = input.closest('div');
+                                    var err = wrap.querySelector('.field-error');
+                                    if (err) err.remove();
+                                }
+
+                                form.querySelectorAll('input, textarea').forEach(function (el) {
+                                    el.addEventListener('input', function () { clearFieldError(el); });
+                                });
+
+                                function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+                                /* ── Submit ── */
+                                form.addEventListener('submit', async function (e) {
+                                    e.preventDefault();
+
+                                    var lastName = form.querySelector('[name="last_name"]');
+                                    var firstName = form.querySelector('[name="first_name"]');
+                                    var email = form.querySelector('[name="email"]');
+                                    var phone = form.querySelector('[name="phone"]');
+                                    var message = form.querySelector('[name="message"]');
+                                    var hasError = false;
+
+                                    if (!lastName.value.trim()) { showFieldError(lastName, 'Last name is required.'); hasError = true; }
+                                    if (!firstName.value.trim()) { showFieldError(firstName, 'First name is required.'); hasError = true; }
+                                    if (!email.value.trim()) { showFieldError(email, 'Email is required.'); hasError = true; }
+                                    else if (!isValidEmail(email.value.trim())) { showFieldError(email, 'Enter a valid email. e.g. name@example.com'); hasError = true; }
+                                    if (!phone.value.trim()) { showFieldError(phone, 'Phone number is required.'); hasError = true; }
+                                    if (!message.value.trim()) { showFieldError(message, 'Message is required.'); hasError = true; }
+
+                                    if (hasError) return;
+
+                                    submitBtn.disabled = true;
+                                    submitBtn.textContent = 'Sending...';
+
+                                    try {
+                                        var res = await fetch('https://api.web3forms.com/submit', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                                        });
+                                        var result = await res.json();
+                                        form.reset();
+                                        result.success ? openModal(successModal) : openModal(errorModal);
+                                    } catch (err) {
+                                        openModal(errorModal);
+                                    } finally {
+                                        submitBtn.disabled = false;
+                                        submitBtn.textContent = 'LEAVE MESSAGE';
+                                    }
+                                });
+                            })();
+                        </script>
                     </div>
 
                     <!-- RIGHT SIDE -->
