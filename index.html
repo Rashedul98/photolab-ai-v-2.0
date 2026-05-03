@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoLab AI</title>
+    <!-- Tailwind compiled output (run: npx tailwindcss -i ./style/style.css -o ./style/output.css --minify) -->
+    <link rel="stylesheet" href="./style/output.css">
+    <script src="https://kit.fontawesome.com/ea4d73dcc2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@latest/dist/flowbite.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="inter-font">
+    <!-- header section -->
+    <div id="home"></div>
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <nav class="max-w-[1190px] mx-auto flex justify-between py-2">
+            <div class="flex ml-4 gap-2 items-center">
+                <img class="w-[44px]" src="./images/Logo_Maker_Logo3.jpg" alt="">
+                <h1 class="text-lg hidden md:block ">PhotoLab AI</h1>
+            </div>
+            <!-- navigation links -->
+
+            <!-- mobile nav bar -->
+            <div class="flex items-center mr-4 relative">
+                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                    class="sm:block md:hidden inline-flex items-center justify-center text-white bg-[#037FFD] rounded-lg hover:bg-[#0266CC] font-medium text-sm px-3.5 py-2.5 focus:outline-none transition-colors"
+                    type="button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!-- Dropdown menu -->
+                <!-- w-44 -->
+                <div id="dropdown"
+                    class="hidden md:hidden absolute right-4 top-full mt-1 z-50 bg-white border border-gray-200 rounded-xl shadow-xl w-44">
+                    <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownDefaultButton">
+                        <li>
+                            <a href="#home"
+                                class="inline-flex items-center w-full px-3 py-2.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">Home</a>
+                        </li>
+                        <li>
+                            <a href="#products"
+                                class="inline-flex items-center w-full px-3 py-2.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">Products</a>
+                        </li>
+                        <li>
+                            <a href="#testimonials"
+                                class="inline-flex items-center w-full px-3 py-2.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">Testimonials</a>
+                        </li>
+                        <li>
+                            <a href="#contact"
+                                class="inline-flex items-center w-full px-3 py-2.5 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- default navbar -->
+            <div class="hidden md:block text-sm font-medium text-center text-body  border-default">
+                <ul class="flex flex-wrap -mb-px">
+                    <li class="me-2">
+                        <a href="#home"
+                            class="text-lg inline-block p-4 rounded-t-base hover:text-[#037FFD] hover:border-[#037FFD]">Home</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="#products"
+                            class="text-lg inline-block p-4 rounded-t-base hover:text-[#037FFD] hover:border-[#037FFD]">Products</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="#testimonials"
+                            class="text-lg inline-block p-4 rounded-t-base hover:text-[#037FFD] hover:border-[#037FFD]">Testimonials</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="#contact"
+                            class="text-lg inline-block p-4 rounded-t-base hover:text-[#037FFD] hover:border-[#037FFD]">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Banner Section -->
+    <div>
+        <div id="hero-carousel" class="relative w-full overflow-hidden h-[260px] sm:h-[360px] md:h-screen">
+            <div id="hero-track" class="flex h-full w-full"
+                style="transition: transform 0.7s ease-in-out; will-change: transform;">
+
+                <!-- Slide 1 -->
+                <div style="min-width:100%; width:100%;" class="h-full flex-shrink-0">
+                    <div class="flex flex-col justify-center md:flex-row md:items-center md:justify-between h-full px-4 md:px-10 py-6"
+                        style="background-image: url('./images/hdr 1.png'); background-size: cover; background-position: center;">
+                        <div class="md:pl-28 md:w-[55%]">
+                            <h1 class="text-2xl text-[#FFFFFF] md:text-5xl font-extrabold mt-2 md:mt-[20px]">
+                                Your All-in-One <br>
+                                <span class="text-[#037FFD]">AI Logo Maker</span>
+                            </h1>
+                            <button class="hero-btn bg-black mt-4 text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-brands fa-apple fa-2x"></i>
+                                    <div class="text-left">
+                                        <span class="text-[10px] block">Download on the</span>
+                                        <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                            class="text-base font-semibold">AppStore</a>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div style="min-width:100%; width:100%;" class="h-full flex-shrink-0">
+                    <div class="flex flex-col justify-center md:flex-row md:items-center md:justify-between h-full px-4 md:px-10 py-6"
+                        style="background-image: url('./images/hdr 2.png'); background-size: cover; background-position: center;">
+                        <div class="md:pl-28 md:w-[55%]">
+                            <h1 class="text-2xl text-[#FFFFFF] md:text-5xl font-extrabold mt-2 md:mt-[20px]">
+                                Your All-in-One <br>
+                                <span class="text-[#037FFD]">AI Home</span>
+                            </h1>
+                            <button class="hero-btn bg-black mt-4 text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-brands fa-apple fa-2x"></i>
+                                    <div class="text-left">
+                                        <span class="text-[10px] block">Download on the</span>
+                                        <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                            class="text-base font-semibold">AppStore</a>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div style="min-width:100%; width:100%;" class="h-full flex-shrink-0">
+                    <div class="flex flex-col justify-center md:flex-row md:items-center md:justify-between h-full px-4 md:px-10 py-6"
+                        style="background-image: url('./images/hdr 3.png'); background-size: cover; background-position: center;">
+                        <div class="md:pl-28 md:w-[55%]">
+                            <h1 class="text-2xl text-[#FFFFFF] md:text-5xl font-extrabold mt-2 md:mt-[20px]">
+                                Your All-in-One <br>
+                                <span class="text-[#037FFD]">AI GIF Maker</span>
+                            </h1>
+                            <button class="hero-btn bg-black mt-4 text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                <div class="flex items-center gap-2">
+                                    <i class="fa-brands fa-apple fa-2x"></i>
+                                    <div class="text-left">
+                                        <span class="text-[10px] block">Download on the</span>
+                                        <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                            class="text-base font-semibold">AppStore</a>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Dot indicators -->
+            <div class="absolute z-30 flex bottom-4 left-1/2 -translate-x-1/2 space-x-3" id="hero-dots">
+                <button data-index="0" class="w-3 h-3 rounded-full bg-white" style="opacity:1"></button>
+                <button data-index="1" class="w-3 h-3 rounded-full bg-white" style="opacity:0.4"></button>
+                <button data-index="2" class="w-3 h-3 rounded-full bg-white" style="opacity:0.4"></button>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <main class="">
+        <!-- Our Apps / Blue gradient section -->
+        <section class="products" id="products">
+            <h2 class="sec-title" style="color:#111;">Our Products</h2>
+            <p class="sec-sub">Discover our suite of AI-powered iOS applications designed to unleash your creativity.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[28px] max-w-[1100px] mx-auto mt-[52px]">
+                <div class="prod-card shadow-md bg-gradient-to-b from-[#F4F4F4] to-[#FFFFFF00]">
+                    <img class="prod-icon" src="./images/ai logo 1.png" alt="">
+                    <div class="prod-name">AI Logo Maker</div>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        <div class="app-btn-t"><small>Download on the</small><span>App Store</span></div>
+                    </a>
+                </div>
+                <div class="prod-card shadow-sm bg-gradient-to-b from-[#F4F4F4]  to-[#FFFFFF00]">
+                    <img class="prod-icon" src="./images/ai home 2.png" alt="">
+                    <div class="prod-name">AI Home Design</div>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        <div class="app-btn-t"><small>Download on the</small><span>App Store</span></div>
+                    </a>
+                </div>
+                <div class="prod-card shadow-sm bg-gradient-to-b from-[#F4F4F4] to-[#FFFFFF00]">
+                    <img src="./images/ai gif 3.png" class="prod-icon">
+                    <div class="prod-name">GIF Maker</div>
+                    <a href="#" class="app-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        <div class="app-btn-t"><small>Download on the</small><span>App Store</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Features Brief -->
+        <div id="features-carousel" class="relative w-full overflow-hidden h-[260px] sm:h-[360px] md:h-screen">
+            <div id="features-track" class="flex h-full w-full"
+                style="transition: transform 0.7s ease-in-out; will-change: transform;">
+
+                <!-- Slide 1 -->
+                <div style="min-width:100%; width:100%;" class="h-full flex-shrink-0">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-end h-full px-4 md:px-10 py-6"
+                        style="background-image: url('./images/phone-logo.png'); background-size: cover; background-position: center;">
+                        <div class="md:w-[55%]">
+                            <div class="flex flex-col items-end md:items-start">
+                                <div class="w-[50%] md:w-full">
+                                    <h1 class="text-xl sm:text-2xl md:text-[36px] font-semibold text-[#FFFFFF]">
+                                        Easy-to-Customize, Designer-Made Logo Templates for All Needs
+                                    </h1>
+                                    <p
+                                        class="hidden sm:block md:block text-sm md:text-xl font-normal mt-3 md:mt-5 mb-3 md:mb-5 text-[#EDEDED]">
+                                        The app's interface allows for easy drag-and-drop functionality, enabling users
+                                        to effortlessly create visually stunning logos.
+                                    </p>
+                                </div>
+                                <div class="pr-7 md:pr-0">
+                                    <button
+                                        class="hero-btn bg-black mt-4 text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fa-brands fa-apple fa-2x"></i>
+                                            <div class="text-left">
+                                                <span class="text-[10px] block">Download on the</span>
+                                                <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                                    class="text-base font-semibold">AppStore</a>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div style="min-width:100%; width:100%;" class="h-full flex-shrink-0">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-end h-full px-4 md:px-10 py-6"
+                        style="background-image: url('./images/phone-home.png'); background-size: cover; background-position: center;">
+                        <div class="md:w-[55%]">
+                            <div class="flex flex-col items-end md:items-start">
+                                <div class="w-[50%] md:w-full">
+                                    <h1 class="text-xl sm:text-2xl md:text-[36px] font-semibold text-[#FFFFFF]">
+                                        Easy-to-Customize, Designer-Made Home Templates for All Needs
+                                    </h1>
+                                    <p
+                                        class=" hidden sm:block md:block  text-sm md:text-xl font-normal mt-3 md:mt-5 mb-3 md:mb-5 text-[#EDEDED]">
+                                        The app's interface allows for easy drag-and-drop functionality, enabling users
+                                        to effortlessly design beautiful home interiors.
+                                    </p>
+                                </div>
+                                <div class="pr-7 md:pr-0">
+                                    <button
+                                        class="hero-btn bg-black mt-4 text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fa-brands fa-apple fa-2x"></i>
+                                            <div class="text-left">
+                                                <span class="text-[10px] block">Download on the</span>
+                                                <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                                    class="text-base font-semibold">AppStore</a>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div style="min-width:100%; width:100%;" class="h-full flex-shrink-0">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-end h-full px-4 md:px-10 py-6"
+                        style="background-image: url('./images/phone-gif.png'); background-size: cover; background-position: center;">
+                        <div class="md:w-[55%]">
+                            <div class="flex flex-col items-end md:items-start">
+                                <div class="w-[50%] md:w-full">
+                                    <h1 class="text-xl sm:text-2xl md:text-[36px] font-semibold text-[#FFFFFF]">
+                                        Easy-to-Customize, Designer-Made GIF Templates for All Needs
+                                    </h1>
+                                    <p
+                                        class="hidden sm:block md:block  text-sm md:text-xl font-normal mt-3 md:mt-5 mb-3 md:mb-5 text-[#EDEDED]">
+                                        The app's interface allows for easy drag-and-drop functionality, enabling users
+                                        to effortlessly create stunning animated GIFs.
+                                    </p>
+                                </div>
+                                <div class="pr-7 md:pr-0">
+                                    <button
+                                        class="hero-btn bg-black mt-4 text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fa-brands fa-apple fa-2x"></i>
+                                            <div class="text-left">
+                                                <span class="text-[10px] block">Download on the</span>
+                                                <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                                    class="text-base font-semibold">AppStore</a>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Dot indicators -->
+            <div class="absolute z-30 flex bottom-4 left-1/2 -translate-x-1/2 space-x-3" id="features-dots">
+                <button data-index="0" class="w-3 h-3 rounded-full bg-white" style="opacity:1"></button>
+                <button data-index="1" class="w-3 h-3 rounded-full bg-white" style="opacity:0.4"></button>
+                <button data-index="2" class="w-3 h-3 rounded-full bg-white" style="opacity:0.4"></button>
+            </div>
+        </div>
+
+        <!-- Feature part 2 -->
+        <!-- <div class="mt-7 max-w-[1190px] mx-auto">
+            <div id="default-carousel" class="relative w-full rounded-2xl overflow-hidden" data-carousel="slide"
+                data-carousel-interval="5000">
+
+                <div class="relative h-[320px] sm:h-[420px] md:h-[540px]">
+
+                    <div class="hidden duration-500 ease-in-out absolute inset-0 w-full" data-carousel-item>
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between h-full px-4 md:px-10 py-6 bg-white">
+                            <div class="md:w-[55%]">
+
+                                <h1 class="text-[36px] md:text-[36px] font-semibold mt-2 md:mt-[20px]">Design Your
+                                    Perfect
+                                    Logo Effortlessly with AI
+                                </h1>
+                                <p
+                                    class="font-normal text-sm md:text-[20px] text-[#484848] mt-2 md:mt-[20px] hidden sm:block">
+                                    Generate a professional and distinctive logo for your brand in just minutes using
+                                    our intuitive AI-powered platform. No prior design experience is necessary – simply
+                                    input your preferences and watch our intelligent system create a range of unique and
+                                    visually appealing options tailored to your business needs. Get a stunning logo fast
+                                    and easily!
+                                </p>
+
+                                <button
+                                    class="bg-black mt-4 md:mt-[40px] text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-brands fa-apple fa-2x"></i>
+                                        <div class="text-left">
+                                            <span class="text-[10px] block">Download on the</span>
+                                            <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                                class="text-base font-semibold">AppStore</a>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="hidden md:flex md:w-[40%] items-center justify-center">
+                                <img class="w-full h-full object-contain" src="./images/Logo 4 image.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="hidden duration-500 ease-in-out absolute inset-0 w-full" data-carousel-item>
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between h-full px-4 md:px-10 py-6 bg-white ">
+                            <div class="md:w-[55%]">
+
+                                <h1 class="text-[36px] md:text-[36px] font-semibold mt-2 md:mt-[20px]">
+                                    Easy-to-Customize, Design-Made Interior Concepts for Every Home
+                                </h1>
+                                <p
+                                    class="font-normal text-sm md:text-[20px] text-[#484848] mt-2 md:mt-[20px] hidden sm:block">
+                                    Our drag-and-drop interface lets you effortlessly arrange furniture and decor to
+                                    visualize your dream home instantly. With AI-powered smart layering, precision
+                                    scaling, and lighting tools, you have complete creative control to transform any
+                                    room into a visually stunning masterpiece with professional ease.
+                                </p>
+
+                                <button
+                                    class="bg-black mt-4 md:mt-[40px] text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-brands fa-apple fa-2x"></i>
+                                        <div class="text-left">
+                                            <span class="text-[10px] block">Download on the</span>
+                                            <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                                class="text-base font-semibold">AppStore</a>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="hidden md:flex md:w-[40%] items-center justify-center">
+                                <img class="w-full h-full object-contain" src="./images/ai home 4 image.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="hidden duration-500 ease-in-out absolute inset-0 w-full" data-carousel-item>
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between h-full px-4 md:px-10 py-6 bg-white">
+                            <div class="md:w-[55%]">
+
+                                <h1 class="text-[36px] md:text-[36px] font-semibold mt-2 md:mt-[20px]">
+                                    Easy-to-Customize, Create Image Art With AI Gif Maker
+                                </h1>
+                                <p
+                                    class="font-normal text-sm md:text-[20px] text-[#484848] mt-2 md:mt-[20px] hidden sm:block">
+                                    Turn your ideas into eye-catching animated visuals in seconds. Our intuitive editor
+                                    lets you easily design, customize, and animate images with just a few taps. With
+                                    AI-powered effects, smart transitions, and precise control over timing and layers,
+                                    you can create stunning GIFs that truly stand out. Bring your creativity to life and
+                                    transform simple images into dynamic, scroll-stopping masterpieces with professional
+                                    ease
+                                </p>
+
+                                <button
+                                    class="bg-black mt-4 md:mt-[40px] text-white px-4 py-2 rounded-lg hover:bg-[#0266CC]">
+                                    <div class="flex items-center gap-2">
+                                        <i class="fa-brands fa-apple fa-2x"></i>
+                                        <div class="text-left">
+                                            <span class="text-[10px] block">Download on the</span>
+                                            <a href="https://apps.apple.com/us/app/ai-logo-maker-flyer-generator/id1463935485"
+                                                class="text-base font-semibold">AppStore</a>
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="hidden md:flex md:w-[40%] items-center justify-center">
+                                <img class="w-full h-full object-contain" src="./images/ai gif 4 image.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+
+        <!-- what makes apps different -->
+        <section class="mb-16 md:mb-[100px] py-8 md:py-10 px-4 md:px-8">
+            <div class="max-w-[1190px] mx-auto">
+
+                <!-- Heading -->
+                <h2 class="text-2xl md:text-3xl font-extrabold text-center text-gray-900 mb-10 md:mb-[70px]">
+                    What Makes Photolabs App Different
+                </h2>
+
+                <!-- Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                    <!-- Card 1: Template Ideas -->
+                    <div class="feature-card bg-gray-100 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="feature-icon w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                <!-- Lightbulb icon -->
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2a7 7 0 0 1 5.292 11.584c-.6.717-1.292 1.55-1.292 2.416v.5a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V16c0-.866-.692-1.699-1.292-2.416A7 7 0 0 1 12 2zm2 15H10v1a2 2 0 0 0 4 0v-1z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-gray-900 text-base">Template Ideas</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            Unlimited unique logo designs to choose from with all elements customizable.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Unique Icons -->
+                    <div class="feature-card bg-gray-100 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="feature-icon w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                <!-- Eye icon -->
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-gray-900 text-base">Unique Icons</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            With millions of elements available, find the perfect icons for your logo and brand.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Text Styling -->
+                    <div class="feature-card bg-gray-100 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="feature-icon w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                <!-- Text/T icon -->
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M2.5 4v3h5v12h3V7h5V4h-13zm19 5h-9v3h3v7h3v-7h3V9z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-gray-900 text-base">Text Styling</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            Stand out from the crowd with the ability to edit all letters of your logo.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Color Palette Generator -->
+                    <div class="feature-card bg-gray-100 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="feature-icon w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                <!-- Palette icon -->
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-gray-900 text-base">Color Palette Generator</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            View endless color options with our shuffle palettes or edit to your liking.
+                        </p>
+                    </div>
+
+                    <!-- Card 5: Edit Freely -->
+                    <div class="feature-card bg-gray-100 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="feature-icon w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                <!-- Star icon -->
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-gray-900 text-base">Edit freely</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            Full control to edit all elements of your logo with no limitations.
+                        </p>
+                    </div>
+
+                    <!-- Card 6: AI image and text -->
+                    <div class="feature-card bg-gray-100 rounded-2xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div
+                                class="feature-icon w-9 h-9 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+                                <!-- Sparkle/AI icon -->
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-bold text-gray-900 text-base">AI image and text</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed">
+                            Use AI magic to craft the perfect slogan or stunning templates that sell your brand.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- happy users -->
+        <div class="max-w-[1190px] mx-auto mb-16 md:mb-[120px] px-4">
+
+            <!-- Heading -->
+            <h2 class="text-3xl sm:text-4xl md:text-[60px] font-extrabold text-center text-gray-900 mb-10 md:mb-[70px]">
+                Millions of Happy Users
+            </h2>
+            <div>
+                <img class="reveal-img w-full" src="./images/map.png" alt="">
+            </div>
+            <!-- Grid -->
+            <div class="flex flex-col justify-center items-center md:flex-row md:justify-around">
+                <div>
+                    <h1 class="text-4xl md:text-[60px] font-bold"><span class="count-up stat-number" data-target="35"
+                            data-suffix="M+">35M+</span></h1>
+                    <p class="text-center">Download</p>
+                </div>
+                <div>
+                    <h1 class="text-4xl md:text-[60px] font-bold"><span class="count-up stat-number" data-target="200"
+                            data-suffix="k">200k</span></h1>
+                    <p class="text-center">Review</p>
+                </div>
+                <div>
+                    <h1 class="text-4xl md:text-[60px] font-bold"><span class="count-up stat-number" data-target="4.8"
+                            data-suffix="">4.8</span></h1>
+                    <p class="text-center">Ratings</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- artwork -->
+        <div class="mb-16 md:mb-[120px]">
+            <h1 class="text-3xl sm:text-4xl md:text-[60px] font-bold text-center mb-10 md:mb-[72px] px-4">Artworks
+                Created by <br>Photolabs.Ai</h1>
+            <img class="reveal-img w-full" src="./images/many image.png" alt="">
+        </div>
+
+        <!-- App Reviews -->
+        <div id="testimonials" class="bg-gradient-to-br from-[#F5A491] via-[#B993F7] to-[#8EC5FC]">
+            <h1 class="text-3xl md:text-5xl font-semibold text-center pt-12 md:pt-[110px] mb-8 md:mb-16 px-4">App
+                Reviews</h1>
+            <!-- review cards -->
+            <div
+                class="max-w-[1190px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 pb-12 md:pb-[120px]">
+
+                <!-- Review 1 -->
+                <div class="review-wrapper flex gap-3">
+                    <div class="w-12 flex-shrink-0">
+                        <img class="w-full rounded-full" src="./images/01.jpg.png" alt="">
+                    </div>
+                    <div class="bg-[#FFFFFF99] p-4 flex-1 rounded-xl h-[200px] flex flex-col">
+                        <h1 class="text-base font-bold">Secure, Reliable and Fast!</h1>
+                        <div><img class="w-[100px] py-2" src="./images/review star-4.png" alt=""></div>
+                        <div class="flex-1 overflow-hidden">
+                            <div class="h-full overflow-y-auto pr-2 scrollbar-hide">
+                                <p class="text-sm mb-3 break-words" id="p-1stReview">
+                                    This app exceeded my expectations! The connection is fast, secure, and stable no
+                                    matter where I am. I use it daily for work and streaming, and it has never let
+                                    me
+                                    down. Highly recommended for anyone serious about online privacy!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <p class="text-sm">- Benjamin Adam75</p>
+                            <button id="rev1" class="rev-btn flex items-center justify-center" title="View full review">
+                                <svg class="rev-icon w-5 h-5 text-gray-500 transition-colors"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-wrapper flex gap-3">
+                    <div class="w-12 flex-shrink-0">
+                        <img class="w-full rounded-full" src="./images/01.jpg.png" alt="">
+                    </div>
+                    <div class="bg-[#FFFFFF99] p-4 flex-1 rounded-xl h-[200px] flex flex-col">
+                        <h1 class="text-base font-bold">Secure, Reliable and Fast!</h1>
+                        <div><img class="w-[100px] py-2" src="./images/review star-4.png" alt=""></div>
+                        <div class="flex-1 overflow-hidden">
+                            <div class="h-full overflow-y-auto pr-2 scrollbar-hide">
+                                <p class="text-sm mb-3 break-words" id="p-2ndReview">
+                                    I was nervous about using a VPN for the first time, but this app made it so
+                                    easy.
+                                    The setup was quick, the interface is clean, and I feel confident knowing my
+                                    data is
+                                    protected. Definitely worth downloading!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <p class="text-sm">- Benjamin Adam75</p>
+                            <button id="rev2" class="rev-btn flex items-center justify-center" title="View full review">
+                                <svg class="rev-icon w-5 h-5 text-gray-500 transition-colors"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-wrapper flex gap-3">
+                    <div class="w-12 flex-shrink-0">
+                        <img class="w-full rounded-full" src="./images/01.jpg.png" alt="">
+                    </div>
+                    <div class="bg-[#FFFFFF99] p-4 flex-1 rounded-xl h-[200px] flex flex-col">
+                        <h1 class="text-base font-bold">Secure, Reliable and Fast!</h1>
+                        <div><img class="w-[100px] py-2" src="./images/review star-4.png" alt=""></div>
+                        <div class="flex-1 overflow-hidden">
+                            <div class="h-full overflow-y-auto pr-2 scrollbar-hide">
+                                <p class="text-sm mb-3 break-words" id="p-3rdReview">
+                                    I travel a lot and needed a reliable VPN to access my favorite shows. This app
+                                    works
+                                    perfectly for streaming and bypassing geo-restrictions. Zero lag, and the
+                                    connection
+                                    is stable.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <p class="text-sm">- Benjamin Adam75</p>
+                            <button id="rev3" class="rev-btn flex items-center justify-center" title="View full review">
+                                <svg class="rev-icon w-5 h-5 text-gray-500 transition-colors"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-wrapper flex gap-3">
+                    <div class="w-12 flex-shrink-0">
+                        <img class="w-full rounded-full" src="./images/01.jpg.png" alt="">
+                    </div>
+                    <div class="bg-[#FFFFFF99] p-4 flex-1 rounded-xl h-[200px] flex flex-col">
+                        <h1 class="text-base font-bold">Secure, Reliable and Fast!</h1>
+                        <div><img class="w-[100px] py-2" src="./images/review star-4.png" alt=""></div>
+                        <div class="flex-1 overflow-hidden">
+                            <div class="h-full overflow-y-auto pr-2 scrollbar-hide">
+                                <p class="text-sm mb-3 break-words" id="p-4thReview">
+                                    I always lose my TV remote, but this app saved me from buying a new one. It's so
+                                    convenient and works perfectly with my smart TV.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <p class="text-sm">- Benjamin Adam75</p>
+                            <button id="rev4" class="rev-btn flex items-center justify-center" title="View full review">
+                                <svg class="rev-icon w-5 h-5 text-gray-500 transition-colors"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-wrapper flex gap-3">
+                    <div class="w-12 flex-shrink-0">
+                        <img class="w-full rounded-full" src="./images/01.jpg.png" alt="">
+                    </div>
+                    <div class="bg-[#FFFFFF99] p-4 flex-1 rounded-xl h-[200px] flex flex-col">
+                        <h1 class="text-base font-bold">Secure, Reliable and Fast!</h1>
+                        <div><img class="w-[100px] py-2" src="./images/review star-4.png" alt=""></div>
+                        <div class="flex-1 overflow-hidden">
+                            <div class="h-full overflow-y-auto pr-2 scrollbar-hide">
+                                <p class="text-sm mb-3 break-words" id="p-5thReview">
+                                    I don't need to worry about my TV remote running out of batteries anymore. This
+                                    app
+                                    is always ready to use, and it's free!
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <p class="text-sm">- Benjamin Adam75</p>
+                            <button id="rev5" class="rev-btn flex items-center justify-center" title="View full review">
+                                <svg class="rev-icon w-5 h-5 text-gray-500 transition-colors"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-wrapper flex gap-3">
+                    <div class="w-12 flex-shrink-0">
+                        <img class="w-full rounded-full" src="./images/01.jpg.png" alt="">
+                    </div>
+                    <div class="bg-[#FFFFFF99] p-4 flex-1 rounded-xl h-[200px] flex flex-col">
+                        <h1 class="text-base font-bold">Secure, Reliable and Fast!</h1>
+                        <div><img class="w-[100px] py-2" src="./images/review star-4.png" alt=""></div>
+                        <div class="flex-1 overflow-hidden">
+                            <div class="h-full overflow-y-auto pr-2 scrollbar-hide">
+                                <p class="text-sm mb-3 break-words" id="p-6thReview">
+                                    I have TVs in different rooms, and this app can control all of them
+                                    effortlessly.
+                                    It's like having a universal remote right on my phone.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between items-center">
+                            <p class="text-sm">- Benjamin Adam75</p>
+                            <button id="rev6" class="rev-btn flex items-center justify-center" title="View full review">
+                                <svg class="rev-icon w-5 h-5 text-gray-500 transition-colors"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="contact" class="relative py-12 md:py-[100px] text-white overflow-hidden" style="
+        background-image:
+        url('./images/Sub Hader bg 2.png');
+        background-size: cover;
+        background-position: center;
+    ">
+
+            <div class="max-w-[1190px] mx-auto px-4">
+
+                <!-- Title -->
+                <h1 class="text-3xl md:text-5xl font-bold uppercase">
+                    Get In Touch
+                </h1>
+
+                <!-- underline -->
+                <div class="w-14 h-[3px] bg-white mt-3"></div>
+
+                <p class="mt-4 text-sm md:text-base text-white/80 max-w-[600px]">
+                    Please fill out the form below to send us an email and we will get
+                    back to you as soon as possible.
+                </p>
+
+                <!-- mt-12 grid md:grid-cols-2 gap-[165px] items-start -->
+                <!-- Main Grid -->
+                <div class="flex flex-col md:flex-row gap-8 md:gap-32 py-7">
+
+                    <!-- LEFT SIDE -->
+                    <div>
+
+                        <h2 class="text-xl font-semibold">
+                            Let’s connect constellations
+                        </h2>
+
+                        <p class="text-sm text-white/70 mt-2 max-w-[420px]">
+                            Let's align our constellations! Reach out and let the
+                            magic of collaboration illuminate our skies.
+                        </p>
+
+                        <!-- FORM -->
+                        <form class="mt-8 w-full">
+
+                            <!-- Name Row -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                                <input type="text" placeholder="Last Name"
+                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+
+                                <input type="text" placeholder="First Name"
+                                    class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+
+                            </div>
+
+                            <!-- Email (FULL WIDTH) -->
+                            <input type="email" placeholder="Email"
+                                class="contact-input w-full mt-4 p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+
+                            <!-- Phone (FULL WIDTH) -->
+                            <input type="text" placeholder="Phone Number"
+                                class="contact-input w-full mt-4 p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+
+                            <!-- Message -->
+                            <textarea rows="5" placeholder="Message"
+                                class="contact-input w-full mt-4 p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white"></textarea>
+
+                            <!-- Button -->
+                            <button class="contact-submit mt-6 px-8 py-3 border border-white rounded-full text-white">
+
+                                LEAVE MESSAGE
+
+                            </button>
+
+                        </form>
+                    </div>
+
+                    <!-- RIGHT SIDE -->
+                    <div>
+
+                        <h2 class="text-xl font-semibold">
+                            Contact Info
+                        </h2>
+
+                        <div class="mt-8 space-y-6">
+
+                            <!-- Address -->
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828
+                            0l-4.243-4.243a8 8 0 1111.314 0z" />
+                                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+
+                                <div>
+                                    <p class="font-semibold">Address</p>
+                                    <p class="text-white/70 text-sm">
+                                        4321 California St, San Francisco, CA 12345
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 5a2 2 0 012-2h2.28a2 2 0
+                            011.94 1.515l.516 2.06a2 2 0
+                            01-.45 1.94l-1.27 1.27a16
+                            16 0 006.586 6.586l1.27-1.27a2
+                            2 0 011.94-.45l2.06.516A2 2 0
+                            0121 16.72V19a2 2 0
+                            01-2 2h-1C9.163 21 3 14.837 3
+                            7V5z" />
+                                </svg>
+
+                                <div>
+                                    <p class="font-semibold">Phone</p>
+                                    <p class="text-white/70 text-sm">
+                                        +1 123 456 1234
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 mt-1" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 8l9 6 9-6" />
+                                    <path d="M21 8v8a2 2 0
+                            01-2 2H5a2 2 0
+                            01-2-2V8" />
+                                </svg>
+
+                                <div>
+                                    <p class="font-semibold">Email</p>
+                                    <p class="text-white/70 text-sm">
+                                        info@company.com
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Divider -->
+                <div class="mt-16 border-t border-white/20"></div>
+
+                <!-- Social Icons -->
+                <div class="flex justify-center gap-6 mt-8">
+
+                    <div class="social-btn w-10 h-10 border border-white rounded-full flex items-center justify-center">
+                        F
+                    </div>
+
+                    <div class="social-btn w-10 h-10 border border-white rounded-full flex items-center justify-center">
+                        T
+                    </div>
+
+                    <div class="social-btn w-10 h-10 border border-white rounded-full flex items-center justify-center">
+                        Y
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </main>
+
+    <script src="./index.js"></script>
+    <script>
+        /* Custom Carousel - replaces Flowbite carousel */
+        function initCarousel(trackId, dotsId, intervalMs) {
+            var track = document.getElementById(trackId);
+            var dotsWrap = document.getElementById(dotsId);
+            if (!track || !dotsWrap) return;
+            var dots = dotsWrap.querySelectorAll('button');
+            var total = track.children.length;
+            var current = 0;
+            var timer;
+
+            function goTo(n) {
+                current = (n + total) % total;
+                track.style.transform = 'translateX(-' + (current * 100) + '%)';
+                dots.forEach(function (d, i) {
+                    d.style.opacity = i === current ? '1' : '0.4';
+                });
+            }
+
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    goTo(parseInt(dot.getAttribute('data-index')));
+                    reset();
+                });
+            });
+
+            function reset() {
+                clearInterval(timer);
+                timer = setInterval(function () { goTo(current + 1); }, intervalMs);
+            }
+
+            goTo(0);
+            reset();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initCarousel('hero-track', 'hero-dots', 5000);
+            initCarousel('features-track', 'features-dots', 5000);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,628 @@
+/* ════════════════════════════════════════════════════
+   BASE – scrollbar, scroll behaviour, scroll offset
+═══════════════════════════════════════════════════ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  /* clears sticky nav on anchor jumps */
+}
+
+/* page fade-in on load */
+body {
+  animation: pageFadeIn 0.45s ease both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════════ */
+
+/* always reserve 2px border so active toggle never shifts height */
+nav a[href^="#"] {
+  border-bottom: 2px solid transparent;
+  transition: color 0.22s ease, border-color 0.22s ease;
+}
+
+/* JS adds .nav-scrolled when page scrolls */
+header {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+header.nav-scrolled {
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.10);
+}
+
+/* hamburger button */
+#dropdownDefaultButton {
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#dropdownDefaultButton:active {
+  transform: scale(0.93);
+}
+
+/* mobile dropdown slide-down */
+#dropdown {
+  transform-origin: top center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#dropdown.show {
+  animation: slideDown 0.22s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: scaleY(0.9) translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+/* ════════════════════════════════════════════════════
+   SCROLL REVEAL  –  JS adds .reveal to elements,
+   then adds .visible when IntersectionObserver fires
+═══════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* stagger delays for sibling groups */
+.reveal-d1 {
+  transition-delay: 0.05s;
+}
+
+.reveal-d2 {
+  transition-delay: 0.13s;
+}
+
+.reveal-d3 {
+  transition-delay: 0.21s;
+}
+
+.reveal-d4 {
+  transition-delay: 0.29s;
+}
+
+.reveal-d5 {
+  transition-delay: 0.37s;
+}
+
+.reveal-d6 {
+  transition-delay: 0.45s;
+}
+
+/* ════════════════════════════════════════════════════
+   HERO  –  button hover
+═══════════════════════════════════════════════════ */
+button.hero-btn,
+a.hero-btn {
+  transition: background 0.22s ease, transform 0.15s ease, box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+button.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+button.hero-btn:active {
+  transform: scale(0.97);
+}
+
+/* ════════════════════════════════════════════════════
+   PRODUCT CARDS
+═══════════════════════════════════════════════════ */
+.prod-card {
+  border: 10px solid white;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 36px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  will-change: transform;
+  transition: box-shadow 0.35s ease,
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.prod-card:hover {
+  box-shadow: 0 22px 56px rgba(61, 110, 255, 0.15);
+  transform: translateY(-7px);
+}
+
+.prod-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.prod-card:hover .prod-icon {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+.app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #000;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 11px;
+  text-decoration: none;
+  transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+}
+
+.app-btn:hover {
+  background: #0266CC;
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(2, 102, 204, 0.35);
+}
+
+.app-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  flex-shrink: 0;
+}
+
+.app-btn-t {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-btn-t small {
+  font-size: 10px;
+  opacity: .75;
+  line-height: 1;
+}
+
+.app-btn-t span {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--fd);
+  line-height: 1.2;
+}
+
+/* ════════════════════════════════════════════════════
+   FEATURE CARDS  ("What Makes It Different")
+═══════════════════════════════════════════════════ */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  background: #e5e7eb !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+}
+
+.feature-card .feature-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.18) rotate(6deg);
+}
+
+/* ════════════════════════════════════════════════════
+   HAPPY USERS  –  stat counter targets
+═══════════════════════════════════════════════════ */
+.stat-number {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* ════════════════════════════════════════════════════
+   REVIEW CARDS
+═══════════════════════════════════════════════════ */
+.review-wrapper {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.review-wrapper:hover {
+  transform: translateY(-5px);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.12));
+}
+
+/* Replace janky animate-bounce with a smooth pulse */
+@keyframes pulseDown {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+
+.rev-icon {
+  animation: pulseDown 1.9s ease-in-out infinite;
+}
+
+.rev-btn:hover .rev-icon {
+  animation: none;
+  transform: translateY(3px);
+  opacity: 1;
+  color: #374151;
+}
+
+.rev-btn {
+  transition: transform 0.15s ease;
+}
+
+.rev-btn:active {
+  transform: scale(0.9);
+}
+
+/* ════════════════════════════════════════════════════
+   CONTACT / FOOTER
+═══════════════════════════════════════════════════ */
+.contact-input {
+  transition: border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.contact-input:focus {
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+  outline: none;
+}
+
+.contact-submit {
+  transition: background 0.25s ease, color 0.25s ease,
+    transform 0.18s ease, box-shadow 0.25s ease;
+}
+
+.contact-submit:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+.contact-submit:active {
+  transform: scale(0.97);
+}
+
+.social-btn {
+  transition: background 0.25s ease, color 0.25s ease, transform 0.22s ease;
+  cursor: pointer;
+}
+
+.social-btn:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* ════════════════════════════════════════════════════
+   MODAL  –  backdrop + card spring
+═══════════════════════════════════════════════════ */
+#reviewModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+#reviewModal.modal-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#reviewModalCard {
+  background: #fff;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 32rem;
+  padding: 1.5rem;
+  position: relative;
+  transform: scale(0.92) translateY(14px);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.25s ease;
+}
+
+#reviewModal.modal-open #reviewModalCard {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+#closeReviewModal {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #9ca3af;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+#closeReviewModal:hover {
+  color: #111;
+  transform: rotate(90deg);
+}
+
+/* ════════════════════════════════════════════════════
+   ORIGINAL UTILITIES  (unchanged)
+═══════════════════════════════════════════════════ */
+.inter-font {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.products {
+  padding: 96px 52px;
+  background: #fff;
+}
+
+.sec-title {
+  font-family: var(--fd);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 800;
+  text-align: center;
+}
+
+.sec-sub {
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 12px auto 0;
+}
+
+.prod-name {
+  font-family: var(--fd);
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.prod-desc {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.prompt-section {
+  padding: 0 52px 80px;
+  background: #fff;
+}
+
+.prompt-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #DDE2F4;
+  border-radius: 50px;
+  padding: 5px 5px 5px 22px;
+  gap: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.prompt-wrap:focus-within {
+  border-color: #037FFD;
+  box-shadow: 0 4px 24px rgba(3, 127, 253, 0.16);
+}
+
+.prompt-wrap input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  background: transparent;
+  font-family: var(--fb);
+}
+
+.prompt-wrap input::placeholder {
+  color: #aaa;
+}
+
+.prompt-cta {
+  background: var(--grad-btn);
+  color: #fff;
+  border: none;
+  padding: 11px 26px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--fb);
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.prompt-cta:hover {
+  opacity: .88;
+  transform: scale(1.02);
+}
+
+
+/* ════════════════════════════════════════════════════
+   MOBILE RESPONSIVE OVERRIDES
+   (mobile-first: defaults are mobile, md: overrides for desktop)
+═══════════════════════════════════════════════════ */
+
+/* ── Products section padding ── */
+.products {
+  padding: 48px 16px;
+}
+
+@media (min-width: 640px) {
+  .products {
+    padding: 64px 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .products {
+    padding: 96px 52px;
+  }
+}
+
+/* ── Feature carousel: hide overflowing text on very small screens ── */
+@media (max-width: 480px) {
+  [data-carousel-item] p {
+    display: none;
+  }
+
+  [data-carousel-item] h1 {
+    font-size: 1.2rem !important;
+    line-height: 1.35;
+    margin-top: 0.5rem !important;
+  }
+}
+
+/* ── Happy users: stat row spacing ── */
+@media (max-width: 767px) {
+  .stat-block-row>div {
+    text-align: center;
+  }
+
+  .stat-block-row>div+div {
+    margin-top: 1rem;
+  }
+}
+
+/* ── Contact form textarea ── */
+@media (max-width: 640px) {
+  textarea[rows="5"] {
+    rows: 4;
+  }
+}
+
+/* ── Mobile nav dropdown ── */
+#dropdown ul {
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+#dropdown a {
+  font-size: 0.9rem;
+}
+
+/* ── Modal: full-width on tiny screens ── */
+@media (max-width: 400px) {
+  #reviewModalCard {
+    width: 95%;
+    padding: 1.1rem;
+  }
+}
+
+/* ── Prevent horizontal overflow globally ── */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ── Images never overflow their container ── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Review cards: slightly smaller avatar on mobile ── */
+@media (max-width: 480px) {
+  .review-wrapper .w-12 {
+    width: 2.2rem;
+  }
+}
+
+/* ── Social icons: larger tap target on mobile ── */
+@media (max-width: 640px) {
+  .social-btn {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+}
+
+/* ── Hero button: full width on very small screens ── */
+@media (max-width: 400px) {
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Contact inputs: ensure full width on all screens ── */
+.contact-input,
+textarea.contact-input {
+  width: 100%;
+  box-sizing: border-box;
+}
