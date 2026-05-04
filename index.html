@@ -947,13 +947,14 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <input type="text" name="last_name" placeholder="Last Name"
-                                        class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
-                                </div>
-                                <div>
                                     <input type="text" name="first_name" placeholder="First Name"
                                         class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
                                 </div>
+                                <div>
+                                    <input type="text" name="last_name" placeholder="Last Name"
+                                        class="contact-input w-full p-4 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:border-white" />
+                                </div>
+
                             </div>
                             <div class="mt-4">
                                 <input type="email" name="email" placeholder="Email"
@@ -1017,11 +1018,11 @@
                                     var message = form.querySelector('[name="message"]');
                                     var hasError = false;
 
-                                    if (!lastName.value.trim()) { showFieldError(lastName, 'Last name is required.'); hasError = true; }
+                                    /* if (!lastName.value.trim()) { showFieldError(lastName, 'Last name is required.'); hasError = true; }*/
                                     if (!firstName.value.trim()) { showFieldError(firstName, 'First name is required.'); hasError = true; }
                                     if (!email.value.trim()) { showFieldError(email, 'Email is required.'); hasError = true; }
                                     else if (!isValidEmail(email.value.trim())) { showFieldError(email, 'Enter a valid email. e.g. name@example.com'); hasError = true; }
-                                    if (!phone.value.trim()) { showFieldError(phone, 'Phone number is required.'); hasError = true; }
+                                    /*   if (!phone.value.trim()) { showFieldError(phone, 'Phone number is required.'); hasError = true; }*/
                                     if (!message.value.trim()) { showFieldError(message, 'Message is required.'); hasError = true; }
 
                                     if (hasError) return;
